@@ -40,7 +40,7 @@ dependencies:
   
   # Local Storage & Utilities
   shared_preferences: ^2.2.2
-  intl: ^0.18.1
+  intl: ^0.20.2
   url_launcher: ^6.2.1
   cupertino_icons: ^1.0.6
 
