@@ -1,0 +1,6 @@
+{
+  "name": "Yaman Future Lab Messenger",
+  "description": "نظام إدارة وتسليم نتائج فحوصات المختبر لمستشفى يمان فيوتشر مع الربط اللاسلكي وتطبيق الأندرويد المساعد",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
