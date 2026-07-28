@@ -111,7 +111,6 @@ flutter:
 
     <application
         android:label="Yaman Lab Companion"
-        android:name="\${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
         <activity
