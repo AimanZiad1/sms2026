@@ -143,24 +143,38 @@ flutter:
     fileName: 'main.dart',
     path: 'lib/main.dart',
     category: 'shared',
-    description: 'نقطة الانطلاق لتطبيق الفلوتر وتحديد النظام (Windows أو Android)',
-    code: `import 'dart:io';
+    description: 'نقطة التشغيل الرئيسية للتطبيق',
+    code: `import 'package:flutter/material.dart';
+import 'app.dart';
+
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
+}
+`,
+  },
+  {
+    id: 'app.dart',
+    fileName: 'app.dart',
+    path: 'lib/app.dart',
+    category: 'shared',
+    description: 'إعدادات التطبيق وتحديد النظام المتوافق (Windows أو Android)',
+    code: `import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'windows_app/windows_dashboard.dart';
 import 'android_app/android_companion_home.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(const YamanLabMessengerApp());
-}
-
-class YamanLabMessengerApp extends StatelessWidget {
-  const YamanLabMessengerApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
+    bool isDesktop = false;
+    if (!kIsWeb) {
+      isDesktop = Platform.isWindows || Platform.isLinux || Platform.isMacOS;
+    }
 
     return MaterialApp(
       title: 'Yaman Future Lab Messenger',
@@ -180,7 +194,7 @@ class YamanLabMessengerApp extends StatelessWidget {
         useMaterial3: true,
         brightness: Brightness.dark,
         fontFamily: 'Tajawal',
-        colorSchemeSeed: const Color(0xFF0284C7), // Teal / Medical Blue
+        colorSchemeSeed: const Color(0xFF0284C7),
         scaffoldBackgroundColor: const Color(0xFF0F172A),
         cardTheme: CardTheme(
           color: const Color(0xFF1E293B),
