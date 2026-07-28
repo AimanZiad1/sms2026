@@ -1,0 +1,9 @@
+{
+    "name": "Yaman Future Lab Messenger",
+    "short_name": "YamanLab",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0F172A",
+    "theme_color": "#0284C7",
+    "description": "Yaman Future Lab Messenger - Hospital Lab Results Notification Platform"
+}
