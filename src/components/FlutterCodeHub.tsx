@@ -15,14 +15,17 @@ import {
   Layers,
   Cloud,
   Cpu,
-  CheckCircle2
+  CheckCircle2,
+  FolderArchive
 } from 'lucide-react';
 import { flutterCodeFiles } from '../data/flutterCodebase';
 import { FlutterCodeFile } from '../types';
+import { downloadFlutterProjectZip } from '../utils/zipExporter';
 
 export const FlutterCodeHub: React.FC = () => {
   const [selectedFileId, setSelectedFileId] = useState<string>('main.dart');
   const [copiedFileId, setCopiedFileId] = useState<string | null>(null);
+  const [isZipping, setIsZipping] = useState(false);
 
   const activeFile = flutterCodeFiles.find(f => f.id === selectedFileId) || flutterCodeFiles[0];
 
@@ -40,6 +43,17 @@ export const FlutterCodeHub: React.FC = () => {
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+  };
+
+  const handleDownloadZip = async () => {
+    setIsZipping(true);
+    try {
+      await downloadFlutterProjectZip();
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsZipping(false);
+    }
   };
 
   return (
@@ -60,12 +74,21 @@ export const FlutterCodeHub: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                الكود المصدري الكامل والمقسّم لتطبيقي Windows Desktop و Android Companion جاهز للبناء المباشر
+                الكود المصدري الكامل لتطبيقي Windows Desktop و Android Companion جاهز للبناء المباشر
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={handleDownloadZip}
+              disabled={isZipping}
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-lg shadow-emerald-600/20"
+            >
+              <FolderArchive className="w-4 h-4" />
+              <span>{isZipping ? 'جاري الضغط...' : 'تحميل مشروع Flutter كملف ZIP كامل'}</span>
+            </button>
+
             <button
               onClick={() => handleCopyCode(activeFile)}
               className="bg-teal-600 hover:bg-teal-500 text-white font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-lg shadow-teal-600/20"
@@ -78,8 +101,8 @@ export const FlutterCodeHub: React.FC = () => {
               onClick={() => handleDownloadFile(activeFile)}
               className="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2.5 rounded-xl text-xs font-medium flex items-center gap-1.5 transition-colors"
             >
-              <Download className="w-4 h-4 text-sky-400" />
-              تحميل الملف
+              <Download className="w-4 h-4" />
+              <span>تحميل الملف</span>
             </button>
           </div>
         </div>

@@ -1,0 +1,44 @@
+name: yaman_lab_messenger
+description: "Yaman Future Lab Messenger - Hospital Lab Results Notification Platform"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # Network & Bridge Server
+  shelf: ^1.4.1
+  shelf_router: ^1.1.4
+  http: ^1.1.0
+  web_socket_channel: ^2.4.0
+  
+  # Telephony & SMS for Android
+  telephony: ^0.2.0
+  permission_handler: ^11.0.1
+  
+  # Folder & File Watcher for Windows
+  watcher: ^1.1.0
+  file_picker: ^6.1.1
+  desktop_drop: ^0.4.4
+  path_provider: ^2.1.1
+  path: ^1.8.3
+  
+  # Local Storage & Utilities
+  shared_preferences: ^2.2.2
+  intl: ^0.18.1
+  url_launcher: ^6.2.1
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
