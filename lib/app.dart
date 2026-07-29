@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'windows_app/windows_dashboard.dart';
-import 'android_app/android_companion_home.dart';
+import 'package:yaman_lab_messenger/windows_app/windows_dashboard.dart';
+import 'package:yaman_lab_messenger/android_app/android_companion_home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

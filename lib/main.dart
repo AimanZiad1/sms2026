@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app.dart';
+import 'package:yaman_lab_messenger/app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
