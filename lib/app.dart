@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'windows_app/windows_dashboard.dart';
-import 'android_app/android_companion_home.dart';
+import 'package:yaman_lab_messenger/windows_app/windows_dashboard.dart';
+import 'package:yaman_lab_messenger/android_app/android_companion_home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Tajawal',
         colorSchemeSeed: const Color(0xFF0284C7), // Teal / Medical Blue
         scaffoldBackgroundColor: const Color(0xFF0F172A),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: const Color(0xFF1E293B),
           elevation: 2,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
