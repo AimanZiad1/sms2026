@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yaman_lab_messenger/android_app/http_bridge_server.dart';
-import 'package:yaman_lab_messenger/android_app/sms_service.dart';
+import 'http_bridge_server.dart';
+import 'sms_service.dart';
 
 class AndroidCompanionScreen extends StatefulWidget {
   const AndroidCompanionScreen({super.key});

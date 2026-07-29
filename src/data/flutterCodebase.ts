@@ -144,7 +144,7 @@ flutter:
     category: 'shared',
     description: 'نقطة التشغيل الرئيسية للتطبيق',
     code: `import 'package:flutter/material.dart';
-import 'package:yaman_lab_messenger/app.dart';
+import 'app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -162,8 +162,8 @@ void main() {
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:yaman_lab_messenger/windows_app/windows_dashboard.dart';
-import 'package:yaman_lab_messenger/android_app/android_companion_home.dart';
+import 'windows_app/windows_dashboard.dart';
+import 'android_app/android_companion_home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -279,9 +279,9 @@ class MyApp extends StatelessWidget {
     code: `import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yaman_lab_messenger/shared/models.dart';
-import 'package:yaman_lab_messenger/windows_app/folder_watcher_service.dart';
-import 'package:yaman_lab_messenger/windows_app/bridge_client_service.dart';
+import '../shared/models.dart';
+import 'folder_watcher_service.dart';
+import 'bridge_client_service.dart';
 
 class WindowsDashboardScreen extends StatefulWidget {
   const WindowsDashboardScreen({super.key});
@@ -674,8 +674,8 @@ class BridgeClientService {
     category: 'android',
     description: 'شاشة تطبيق الأندرويد المساعد الجسر ومراقبة حالة الخادم والرسائل',
     code: `import 'package:flutter/material.dart';
-import 'package:yaman_lab_messenger/android_app/http_bridge_server.dart';
-import 'package:yaman_lab_messenger/android_app/sms_service.dart';
+import 'http_bridge_server.dart';
+import 'sms_service.dart';
 
 class AndroidCompanionScreen extends StatefulWidget {
   const AndroidCompanionScreen({super.key});

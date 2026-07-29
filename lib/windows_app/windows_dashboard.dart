@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:yaman_lab_messenger/shared/models.dart';
-import 'package:yaman_lab_messenger/windows_app/folder_watcher_service.dart';
-import 'package:yaman_lab_messenger/windows_app/bridge_client_service.dart';
+import '../shared/models.dart';
+import 'folder_watcher_service.dart';
+import 'bridge_client_service.dart';
 
 class WindowsDashboardScreen extends StatefulWidget {
   const WindowsDashboardScreen({super.key});
