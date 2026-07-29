@@ -14,13 +14,13 @@ subprojects {
 }
 
 subprojects {
-    plugins.withId("com.android.library") {
-        android {
-            if (namespace == null) {
+    pluginManager.withPlugin('com.android.library') {
+        if (project.hasProperty('android')) {
+            if (project.android.namespace == null) {
                 if (project.name == 'telephony') {
-                    namespace = 'com.shounakmulay.telephony'
+                    project.android.namespace = 'com.shounakmulay.telephony'
                 } else {
-                    namespace = "com.example.${project.name.replace('-', '_')}"
+                    project.android.namespace = "com.example.${project.name.replace('-', '_')}"
                 }
             }
         }
