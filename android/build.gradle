@@ -13,6 +13,24 @@ subprojects {
     project.evaluationDependsOn(":app")
 }
 
+subprojects {
+    afterEvaluate { subproject ->
+        if (subproject.hasProperty('android')) {
+            try {
+                if (subproject.android.namespace == null) {
+                    if (subproject.name == 'telephony') {
+                        subproject.android.namespace = 'com.shounakmulay.telephony'
+                    } else {
+                        subproject.android.namespace = subproject.group ? "${subproject.group}.${subproject.name.replace('-', '_')}" : "com.example.${subproject.name.replace('-', '_')}"
+                    }
+                }
+            } catch (Exception e) {
+                // Ignore if not an AGP module with standard namespace property
+            }
+        }
+    }
+}
+
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
