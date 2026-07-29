@@ -14,18 +14,14 @@ subprojects {
 }
 
 subprojects {
-    afterEvaluate { subproject ->
-        if (subproject.hasProperty('android')) {
-            try {
-                if (subproject.android.namespace == null) {
-                    if (subproject.name == 'telephony') {
-                        subproject.android.namespace = 'com.shounakmulay.telephony'
-                    } else {
-                        subproject.android.namespace = subproject.group ? "${subproject.group}.${subproject.name.replace('-', '_')}" : "com.example.${subproject.name.replace('-', '_')}"
-                    }
+    plugins.withId("com.android.library") {
+        android {
+            if (namespace == null) {
+                if (project.name == 'telephony') {
+                    namespace = 'com.shounakmulay.telephony'
+                } else {
+                    namespace = "com.example.${project.name.replace('-', '_')}"
                 }
-            } catch (Exception e) {
-                // Ignore if not an AGP module with standard namespace property
             }
         }
     }
